@@ -10,15 +10,11 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
-
 import javax.swing.AbstractButton;
 import javax.swing.DefaultButtonModel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class SwitchButton extends AbstractButton {
-
 	/**
 	 * 
 	 */
@@ -36,15 +32,14 @@ public class SwitchButton extends AbstractButton {
 	private final String trueLabel;
 	private final String falseLabel;
 	private Dimension thumbBounds;
-	private Rectangle2D bounds;
 	private int max;
 
 	public SwitchButton(String trueLabel, String falseLabel) {
 		this.trueLabel = trueLabel;
 		this.falseLabel = falseLabel;
-		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth()+5;
-		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth()+5;
-		max = (int) Math.max(trueLenth, falseLenght)+5;
+		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth() + 5;
+		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth() + 5;
+		max = (int) Math.max(trueLenth, falseLenght) + 5;
 		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
 		thumbBounds = new Dimension(max + gap * 2, 20);
 		globalWitdh = max + thumbBounds.width + gap * 2;
@@ -116,12 +111,12 @@ public class SwitchButton extends AbstractButton {
 		if (isSelected()) {
 			lx = thumbBounds.width;
 		} else {
-			x = thumbBounds.width ;
+			x = thumbBounds.width;
 
 		}
 		int y = 0;
 		int w = thumbBounds.width;
-		int h = thumbBounds.height+5;
+		int h = thumbBounds.height + 5;
 
 		g2.setPaint(new GradientPaint(x, (int) (y - 0.1 * h), colorDark, x, (int) (y + 1.2 * h), light));
 		g2.fillRect(x, y, w, h);
