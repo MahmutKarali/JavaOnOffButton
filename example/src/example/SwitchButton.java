@@ -15,9 +15,7 @@ import javax.swing.DefaultButtonModel;
 import javax.swing.JLabel;
 
 public class SwitchButton extends AbstractButton {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private Color colorBright = new Color(220, 220, 220);
 	private Color colorDark = new Color(150, 150, 150);
@@ -82,7 +80,7 @@ public class SwitchButton extends AbstractButton {
 
 	@Override
 	public int getHeight() {
-		return getPreferredSize().height+5;
+		return getPreferredSize().height + 5;
 	}
 
 	@Override
@@ -108,12 +106,11 @@ public class SwitchButton extends AbstractButton {
 
 		int x = 0;
 		int lx = 0;
-		if (isSelected()) {
+		if (isSelected())
 			lx = thumbBounds.width;
-		} else {
+		else
 			x = thumbBounds.width;
 
-		}
 		int y = 0;
 		int w = thumbBounds.width;
 		int h = thumbBounds.height + 5;
