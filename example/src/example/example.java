@@ -20,7 +20,7 @@ public class example {
 		frame.setBounds(500, 100, 300, 220);
 		frame.setDefaultCloseOperation(3);
 		frame.getContentPane().setLayout(null);
-
+		
 		frame.getContentPane().add(jpanel);
 
 		jpanel.setBounds(0, 0, 500, 500);
