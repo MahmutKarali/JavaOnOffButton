@@ -9,7 +9,7 @@
 
 #  Description
 
-Butonun boyutunu değişkenlere (width,height) setleme yaparak değiştirebilirsiniz.
+Variables the size of the button (width,height) you can change this by assigning the value of.
 
 ![Alt text](/screenshots/swingPanel.png "buttonSettings")
 
