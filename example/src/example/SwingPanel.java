@@ -24,14 +24,14 @@ public class SwingPanel extends JPanel {
 	public SwingPanel() {
 		setLayout(null);
 
-		int imBtnWidth=100,imBtnHeight=30;
+		int imBtnWidth=100,imBtnHeight=20;
 		
 		swtButtonIm = new SwitchButton("on", "off",imBtnWidth,imBtnHeight);
 		swtButtonIm.setSelected(true);
 		swtButtonIm.setBounds(129, 67, imBtnWidth, imBtnHeight);
 		add(swtButtonIm);
 
-		int callBtnWidth=100,callBtnHeight=30;
+		int callBtnWidth=100,callBtnHeight=20;
 		
 		swtButtonCall = new SwitchButton("on", "off",callBtnWidth,callBtnHeight);
 		swtButtonCall.setSelected(true);

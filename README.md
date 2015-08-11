@@ -1,15 +1,17 @@
 ﻿  
 # JavaOnOffButton
 -----------------------------------------------------------
-Java with On/Off Button Implement 
-
-Javada On/Off butonu hazır olarak Swing Tool'unda gelmiyor.
-Bu sebeple bizim geliştirmemiz gerekiyor.
-
 
 # Screenshot
 
 ![Alt text](/screenshots/onOffBtn.png "OnOffButton")
+
+
+#  Description
+
+Butonun boyutunu değişkenlere (width,height) setleme yaparak değiştirebilirsiniz.
+
+![Alt text](/screenshots/swingPanel.png "buttonSettings")
 
 
 
