@@ -24,15 +24,18 @@ public class SwingPanel extends JPanel {
 	public SwingPanel() {
 		setLayout(null);
 
-		swtButtonIm = new SwitchButton("on", "off");
+		int imBtnWidth=100,imBtnHeight=30;
+		
+		swtButtonIm = new SwitchButton("on", "off",imBtnWidth,imBtnHeight);
 		swtButtonIm.setSelected(true);
-		swtButtonIm.setBounds(129, 67, 89, 23);
+		swtButtonIm.setBounds(129, 67, imBtnWidth, imBtnHeight);
 		add(swtButtonIm);
 
-		swtButtonCall = new SwitchButton("on", "off");
-		swtButtonCall.setFont(swtButtonCall.getFont().deriveFont(50.0f));
+		int callBtnWidth=100,callBtnHeight=30;
+		
+		swtButtonCall = new SwitchButton("on", "off",callBtnWidth,callBtnHeight);
 		swtButtonCall.setSelected(true);
-		swtButtonCall.setBounds(129, 23, 89, 50);
+		swtButtonCall.setBounds(129, 23, callBtnWidth, callBtnHeight);
 		add(swtButtonCall);
 
 		tryLabel = new JLabel(" ");
@@ -44,12 +47,12 @@ public class SwingPanel extends JPanel {
 		add(tryLabel2);
 
 		Label imLabel = new Label("IM");
-		imLabel.setBounds(75, 23, 62, 22);
+		imLabel.setBounds(61, 68, 62, 22);
 		add(imLabel);
 
-		Label callLabel = new Label("CALL");
-		callLabel.setBounds(75, 68, 62, 22);
-		add(callLabel);
+		Label label = new Label("CALL");
+		label.setBounds(61, 23, 62, 22);
+		add(label);
 
 	}
 }

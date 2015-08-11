@@ -24,23 +24,39 @@ public class SwitchButton extends AbstractButton {
 	private Color light = new Color(220, 220, 220, 100);
 	private Color red = new Color(255, 0, 0);
 	private Color green = new Color(0, 153, 0);
-	private Font font = new JLabel().getFont();
+	private Font font;
 	private int gap = 5;
+	private int windowHeight = 0;
+	private int windowWidth = 0;
 	private int globalWitdh = 0;
 	private final String trueLabel;
 	private final String falseLabel;
 	private Dimension thumbBounds;
 	private int max;
 
-	public SwitchButton(String trueLabel, String falseLabel) {
+	public SwitchButton(String trueLabel, String falseLabel, int width, int height) {
+		setWindowHeight(height);
+		setWindowWidth(width);
+		int fontHeight = (getWindowHeight() * 4) / 5;
+		font = new Font("Serif", Font.PLAIN, fontHeight);
 		this.trueLabel = trueLabel;
 		this.falseLabel = falseLabel;
-		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth() + 5;
-		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth() + 5;
+		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
+		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
+		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
+
+		if (minHeigth < getWindowHeight())
+			minHeigth = getWindowHeight();
+
 		max = (int) Math.max(trueLenth, falseLenght) + 5;
 		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
-		thumbBounds = new Dimension(max + gap * 2, 20);
-		globalWitdh = max + thumbBounds.width + gap * 2;
+		int minWidth = max + gap * 2;
+		if (minWidth < getWindowWidth() / 2)
+			minWidth = getWindowWidth() / 2;
+		thumbBounds = new Dimension(minWidth, (int) minHeigth);
+		globalWitdh = minWidth * 2;
+
+		System.out.println(globalWitdh + " : " + minHeigth);
 		setModel(new DefaultButtonModel());
 		setSelected(false);
 
@@ -49,14 +65,19 @@ public class SwitchButton extends AbstractButton {
 			public void mouseReleased(MouseEvent e) {
 				if (new Rectangle(getPreferredSize()).contains(e.getPoint())) {
 					setSelected(!isSelected());
-
 				}
 			}
 		});
 	}
 
+	// Switch Butonun boyutlandýrýlmasý.
+	public void buttonSize() {
+
+	}
+
 	@Override
 	public Dimension getPreferredSize() {
+
 		return new Dimension(globalWitdh, thumbBounds.height);
 	}
 
@@ -80,7 +101,7 @@ public class SwitchButton extends AbstractButton {
 
 	@Override
 	public int getHeight() {
-		return getPreferredSize().height + 5;
+		return getPreferredSize().height;
 	}
 
 	@Override
@@ -106,14 +127,16 @@ public class SwitchButton extends AbstractButton {
 
 		int x = 0;
 		int lx = 0;
-		if (isSelected())
+		if (isSelected()) {
 			lx = thumbBounds.width;
-		else
+		} else {
 			x = thumbBounds.width;
-
+		}
 		int y = 0;
+
+		// giden gelenin w-h ý
 		int w = thumbBounds.width;
-		int h = thumbBounds.height + 5;
+		int h = thumbBounds.height;
 
 		g2.setPaint(new GradientPaint(x, (int) (y - 0.1 * h), colorDark, x, (int) (y + 1.2 * h), light));
 		g2.fillRect(x, y, w, h);
@@ -121,7 +144,7 @@ public class SwitchButton extends AbstractButton {
 		g2.fillRect(x, (int) (y + .65 * h), w, (int) (h - .65 * h));
 
 		if (w > 14) {
-			int size = 20;
+			int size = 10;
 			g2.setColor(colorBright);
 			g2.fillRect(x + w / 2 - size / 2, y + h / 2 - size / 2, size, size);
 			g2.setColor(new Color(120, 120, 120));
@@ -147,6 +170,23 @@ public class SwitchButton extends AbstractButton {
 		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g2.setFont(getFont());
 		g2.drawString(getText(), lx + gap, y + h / 2 + h / 4);
+	}
+
+	public int getWindowHeight() {
+		return windowHeight;
+	}
+
+	public void setWindowHeight(int windowHeight) {
+		this.windowHeight = windowHeight;
+		this.repaint();
+	}
+
+	public int getWindowWidth() {
+		return windowWidth;
+	}
+
+	public void setWindowWidth(int windowWidth) {
+		this.windowWidth = windowWidth;
 	}
 
 }

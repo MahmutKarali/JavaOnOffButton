@@ -22,14 +22,14 @@ public class example {
 		jpanel.swtButtonIm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				jpanel.tryLabel.setText("swtButtonCall " + jpanel.swtButtonIm.isSelected());
+				jpanel.tryLabel.setText("IM       : " + jpanel.swtButtonIm.isSelected());
 			}
 		});
 
 		jpanel.swtButtonCall.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				jpanel.tryLabel2.setText("swtButtonIm  " + jpanel.swtButtonCall.isSelected());
+				jpanel.tryLabel2.setText("CALL : " + jpanel.swtButtonCall.isSelected());
 			}
 		});
 
