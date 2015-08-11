@@ -12,7 +12,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.AbstractButton;
 import javax.swing.DefaultButtonModel;
-import javax.swing.JLabel;
 
 public class SwitchButton extends AbstractButton {
 
@@ -35,28 +34,28 @@ public class SwitchButton extends AbstractButton {
 	private int max;
 
 	public SwitchButton(String trueLabel, String falseLabel, int width, int height) {
-		setWindowHeight(height);
-		setWindowWidth(width);
-		int fontHeight = (getWindowHeight() * 4) / 5;
-		font = new Font("Serif", Font.PLAIN, fontHeight);
+//		setWindowHeight(height);
+//		setWindowWidth(width);
+//		int fontHeight = (getWindowHeight() * 4) / 5;
+//		font = new Font("Serif", Font.PLAIN, fontHeight);
 		this.trueLabel = trueLabel;
 		this.falseLabel = falseLabel;
-		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
-		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
-		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
-
-		if (minHeigth < getWindowHeight())
-			minHeigth = getWindowHeight();
-
-		max = (int) Math.max(trueLenth, falseLenght) + 5;
-		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
-		int minWidth = max + gap * 2;
-		if (minWidth < getWindowWidth() / 2)
-			minWidth = getWindowWidth() / 2;
-		thumbBounds = new Dimension(minWidth, (int) minHeigth);
-		globalWitdh = minWidth * 2;
-
-		System.out.println(globalWitdh + " : " + minHeigth);
+//		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
+//		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
+//		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
+//
+//		if (minHeigth < getWindowHeight())
+//			minHeigth = getWindowHeight();
+//
+//		max = (int) Math.max(trueLenth, falseLenght) + 5;
+//		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
+//		int minWidth = max + gap * 2;
+//		if (minWidth < getWindowWidth() / 2)
+//			minWidth = getWindowWidth() / 2;
+//		thumbBounds = new Dimension(minWidth, (int) minHeigth);
+//		globalWitdh = minWidth * 2;
+//
+//		//System.out.println(globalWitdh + " : " + minHeigth);
 		setModel(new DefaultButtonModel());
 		setSelected(false);
 
@@ -79,6 +78,37 @@ public class SwitchButton extends AbstractButton {
 	public Dimension getPreferredSize() {
 
 		return new Dimension(globalWitdh, thumbBounds.height);
+	}
+	@Override
+	public void setBounds(int x, int y, int width, int height) {
+		setWindowHeight(height);
+		setWindowWidth(width);
+		setWindowHeight(height);
+		setWindowWidth(width);
+		int fontHeight = (getWindowHeight() * 4) / 5;
+		font = new Font("Serif", Font.PLAIN, fontHeight);
+	
+		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
+		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
+		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
+ 		System.out.println(trueLenth + " = " + falseLenght+" : "+fontHeight);
+		if (minHeigth < getWindowHeight())
+			minHeigth = getWindowHeight();
+
+		max = (int) Math.max(trueLenth, falseLenght) + 5;
+		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
+		int minWidth = max + gap * 2;
+		if (minWidth < getWindowWidth() / 2)
+			minWidth = getWindowWidth() / 2;
+		thumbBounds = new Dimension(minWidth, (int) minHeigth);
+		globalWitdh = minWidth * 2;
+
+		System.out.println(globalWitdh + " : " + minHeigth);
+		setModel(new DefaultButtonModel());
+		setSelected(false);
+
+		repaint();
+		super.setBounds(x,y,width,height);
 	}
 
 	@Override
