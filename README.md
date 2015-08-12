@@ -43,13 +43,14 @@ The size of the button (callBtnWidth,callBtnHeight) you can change this by assig
 
 All code;
 
-![Alt text](/screenshots/swingPanel.png " swingPanelCode")
+![Alt text](/screenshots/swingPanel.png " ")
 
 
 
 Error! Check the font size.
 
-![Alt text](/screenshots/sizeErrorBtn.png " sizeErrorBtn")
+
+![Alt text](/screenshots/sizeErrorBtn.png " ")
  
 
 
