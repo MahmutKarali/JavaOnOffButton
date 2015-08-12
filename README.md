@@ -4,8 +4,8 @@
   
 On-Off cases;
 
-![Alt text](/screenshots/onOffBtn.png "onBtn"
-![Alt text](/screenshots/onOffBtn.png "offBtn"))
+![Alt text](/screenshots/onBtn.png "onBtn"
+![Alt text](/screenshots/offBtn.png "offBtn"))
 
 
 #  Description
