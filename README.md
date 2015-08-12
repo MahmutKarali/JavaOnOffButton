@@ -11,7 +11,7 @@ On-Off cases;
 
 #  Description
 
-There are 4 parameters of the font. 
+There are three parameters of the font. 
 The first two parameters has been assigned as the default.
 The size of the button (width,height) you can change this by assigning the value of. 
 The third parameter according to the size of the button assign. 
