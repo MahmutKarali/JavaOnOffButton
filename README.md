@@ -46,7 +46,9 @@ All code;
 ![Alt text](/screenshots/swingPanel.png " swingPanelCode")
 
 
+
 Error! Check the font size.
+
 ![Alt text](/screenshots/sizeErrorBtn.png " sizeErrorBtn")
  
 
