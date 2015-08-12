@@ -29,7 +29,7 @@ public class SwingPanel extends JPanel {
 		swtButtonCall = new SwitchButton("on", "off");
 		swtButtonCall.setSelected(true);
 		swtButtonCall.setBounds(129, 20, callBtnWidth, callBtnHeight);
-		swtButtonCall.setFont(new Font("Serif", Font.ITALIC,40));
+		swtButtonCall.setFont(new Font("Arial", Font.ITALIC,40));
 		add(swtButtonCall);
 
 		// int imBtnWidth = 58, imBtnHeight = 30;

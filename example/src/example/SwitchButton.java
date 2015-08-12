@@ -53,7 +53,6 @@ public class SwitchButton extends AbstractButton {
 				}
 			}
 		});
-		  
 	}
 
 	@Override
