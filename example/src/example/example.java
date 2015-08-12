@@ -19,19 +19,19 @@ public class example {
 
 		jpanel.setBounds(0, 0, 500, 500);
 
-		jpanel.swtButtonIm.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				jpanel.tryLabel.setText("IM       : " + jpanel.swtButtonIm.isSelected());
-			}
-		});
+//		jpanel.swtButtonIm.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseReleased(MouseEvent e) {
+//				jpanel.tryLabel.setText("IM       : " + jpanel.swtButtonIm.isSelected());
+//			}
+//		});
 
-		jpanel.swtButtonCall.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				jpanel.tryLabel2.setText("CALL : " + jpanel.swtButtonCall.isSelected());
-			}
-		});
+//		jpanel.swtButtonCall.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseReleased(MouseEvent e) {
+//				jpanel.tryLabel2.setText("CALL : " + jpanel.swtButtonCall.isSelected());
+//			}
+//		});
 
 		frame.setVisible(true);
 	}

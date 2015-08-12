@@ -25,37 +25,23 @@ public class SwitchButton extends AbstractButton {
 	private Color green = new Color(0, 153, 0);
 	private Font font;
 	private int gap = 5;
+
 	private int windowHeight = 0;
 	private int windowWidth = 0;
+
 	private int globalWitdh = 0;
-	private final String trueLabel;
-	private final String falseLabel;
+	private String trueLabel;
+	private String falseLabel;
+	private final String trueLabelText;
+	private final String falseLabelText;
 	private Dimension thumbBounds;
 	private int max;
 
-	public SwitchButton(String trueLabel, String falseLabel, int width, int height) {
-//		setWindowHeight(height);
-//		setWindowWidth(width);
-//		int fontHeight = (getWindowHeight() * 4) / 5;
-//		font = new Font("Serif", Font.PLAIN, fontHeight);
-		this.trueLabel = trueLabel;
-		this.falseLabel = falseLabel;
-//		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
-//		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
-//		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
-//
-//		if (minHeigth < getWindowHeight())
-//			minHeigth = getWindowHeight();
-//
-//		max = (int) Math.max(trueLenth, falseLenght) + 5;
-//		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
-//		int minWidth = max + gap * 2;
-//		if (minWidth < getWindowWidth() / 2)
-//			minWidth = getWindowWidth() / 2;
-//		thumbBounds = new Dimension(minWidth, (int) minHeigth);
-//		globalWitdh = minWidth * 2;
-//
-//		//System.out.println(globalWitdh + " : " + minHeigth);
+	public SwitchButton(String trueLabel, String falseLabel) {
+		this.trueLabelText=trueLabel;
+		this.falseLabelText=falseLabel;
+		this.trueLabel = this.trueLabelText;
+		this.falseLabel =this.falseLabelText;
 		setModel(new DefaultButtonModel());
 		setSelected(false);
 
@@ -69,46 +55,75 @@ public class SwitchButton extends AbstractButton {
 		});
 	}
 
-	// Switch Butonun boyutlandýrýlmasý.
-	public void buttonSize() {
-
-	}
-
 	@Override
 	public Dimension getPreferredSize() {
 
 		return new Dimension(globalWitdh, thumbBounds.height);
 	}
+
+	@Override
+	public void setFont(Font font) {
+		this.font=font;
+		this.trueLabel = this.trueLabelText;
+		this.falseLabel =this.falseLabelText;
+		double trueLenth = getFontMetrics(font).getStringBounds(trueLabel, getGraphics()).getWidth();
+		double falseLenght = getFontMetrics(font).getStringBounds(falseLabel, getGraphics()).getWidth();
+		double minHeigth = getFontMetrics(font).getStringBounds(trueLabel, getGraphics()).getHeight();
+		max = (int) Math.max(trueLenth, falseLenght) + 5;
+		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
+		int minWidth = max + gap * 2;
+		System.out.println("setFont 1:"+trueLenth + " : " + falseLenght+" :  "+getFont().getSize());
+		System.out.println("setFont 1:"+minWidth + " : " + minHeigth);
+
+		if ((minWidth > getWindowWidth() / 2) || (minHeigth > getWindowHeight())) {
+			this.trueLabel = "!";
+			this.falseLabel = "!";
+			System.out.println("setFont 12:"+minWidth + " : " + minHeigth);
+		}
+		minWidth = getWindowWidth() / 2;
+		minHeigth = getWindowHeight();
+		thumbBounds = new Dimension(minWidth, (int) minHeigth);
+		globalWitdh = minWidth * 2;
+
+		System.out.println("setFont " + globalWitdh + " : " + minHeigth);
+		setModel(new DefaultButtonModel());
+		setSelected(false);
+		repaint();
+		
+	}
+
 	@Override
 	public void setBounds(int x, int y, int width, int height) {
 		setWindowHeight(height);
 		setWindowWidth(width);
-		setWindowHeight(height);
-		setWindowWidth(width);
-		int fontHeight = (getWindowHeight() * 4) / 5;
+		this.trueLabel = this.trueLabelText;
+		this.falseLabel =this.falseLabelText;
+		
+		int fontHeight = (getWindowHeight() * 4) / 15;
 		font = new Font("Serif", Font.PLAIN, fontHeight);
-	
+
 		double trueLenth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
 		double falseLenght = getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
 		double minHeigth = getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getHeight();
- 		System.out.println(trueLenth + " = " + falseLenght+" : "+fontHeight);
-		if (minHeigth < getWindowHeight())
-			minHeigth = getWindowHeight();
-
+		System.out.println("setBounds 1:"+trueLenth + " : " + falseLenght);
 		max = (int) Math.max(trueLenth, falseLenght) + 5;
 		gap = Math.max(5, 5 + (int) Math.abs(trueLenth - falseLenght));
 		int minWidth = max + gap * 2;
-		if (minWidth < getWindowWidth() / 2)
-			minWidth = getWindowWidth() / 2;
+		System.out.println("setBounds 1:"+minWidth + " : " + minHeigth);
+		if (minWidth > getWindowWidth() / 2) {
+			this.trueLabel = "!";
+			this.falseLabel = "!";
+		}
+		minWidth = getWindowWidth() / 2;
+		minHeigth = getWindowHeight();
 		thumbBounds = new Dimension(minWidth, (int) minHeigth);
 		globalWitdh = minWidth * 2;
 
-		System.out.println(globalWitdh + " : " + minHeigth);
+		System.out.println("setBounds "+globalWitdh + " : " + minHeigth);
 		setModel(new DefaultButtonModel());
 		setSelected(false);
-
 		repaint();
-		super.setBounds(x,y,width,height);
+		super.setBounds(x, y, width, height);
 	}
 
 	@Override
@@ -164,7 +179,6 @@ public class SwitchButton extends AbstractButton {
 		}
 		int y = 0;
 
-		// giden gelenin w-h ý
 		int w = thumbBounds.width;
 		int h = thumbBounds.height;
 
