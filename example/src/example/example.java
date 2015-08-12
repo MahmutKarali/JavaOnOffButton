@@ -11,7 +11,7 @@ public class example {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		frame.setBounds(500, 100, 300, 220);
+		frame.setBounds(500, 100, 400, 220);
 		frame.setDefaultCloseOperation(3);
 		frame.getContentPane().setLayout(null);
 
@@ -26,12 +26,12 @@ public class example {
 //			}
 //		});
 
-//		jpanel.swtButtonCall.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseReleased(MouseEvent e) {
-//				jpanel.tryLabel2.setText("CALL : " + jpanel.swtButtonCall.isSelected());
-//			}
-//		});
+		jpanel.swtButtonCall.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				jpanel.tryLabel2.setText("CALL : " + jpanel.swtButtonCall.isSelected());
+			}
+		});
 
 		frame.setVisible(true);
 	}

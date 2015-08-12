@@ -24,33 +24,32 @@ public class SwingPanel extends JPanel {
 	public SwingPanel() {
 		setLayout(null);
 
-		int callBtnWidth =250, callBtnHeight =250;
+		int callBtnWidth = 150, callBtnHeight = 50;
 
 		swtButtonCall = new SwitchButton("on", "off");
 		swtButtonCall.setSelected(true);
 		swtButtonCall.setBounds(129, 20, callBtnWidth, callBtnHeight);
-		swtButtonCall.setFont(new Font("Serif", Font.ITALIC, 5));
+		swtButtonCall.setFont(new Font("Serif", Font.ITALIC,40));
 		add(swtButtonCall);
 
-		int imBtnWidth = 58, imBtnHeight = 30;
-
-//		swtButtonIm = new SwitchButton("on", "off");
-//		swtButtonIm.setSelected(true);
-//		swtButtonIm.setBounds(129, 90, imBtnWidth, imBtnHeight);
-//		swtButtonIm.setFont(new Font("Serif", Font.BOLD, 20));
-//		add(swtButtonIm);
+		// int imBtnWidth = 58, imBtnHeight = 30;
+		// swtButtonIm = new SwitchButton("on", "off");
+		// swtButtonIm.setSelected(true);
+		// swtButtonIm.setBounds(129, 90, imBtnWidth, imBtnHeight);
+		// swtButtonIm.setFont(new Font("Serif", Font.BOLD, 20));
+		// add(swtButtonIm);
 
 		tryLabel = new JLabel(" ");
-		tryLabel.setBounds(75, 134, 200, 14);
+		tryLabel.setBounds(75, 81, 200, 14);
 		add(tryLabel);
 
 		tryLabel2 = new JLabel(" ");
-		tryLabel2.setBounds(75, 148, 200, 14);
+		tryLabel2.setBounds(129, 91, 200, 14);
 		add(tryLabel2);
 
-		Label imLabel = new Label("IM");
-		imLabel.setBounds(61, 68, 62, 22);
-		add(imLabel);
+//		Label imLabel = new Label("IM");
+//		imLabel.setBounds(61, 68, 62, 22);
+//		add(imLabel);
 
 		Label label = new Label("CALL");
 		label.setBounds(61, 23, 62, 22);
