@@ -22,7 +22,7 @@ The third parameter according to the size of the button assign.
 
 When the button's text to an undesirable situation "!" assigned.
 
-![Alt text](/screenshots/sizeErrorBtn.png "  ")
+![Alt text](/screenshots/sizeErrorBtn.png " sizeErrorBtn")
  
 
 
